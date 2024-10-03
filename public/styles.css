@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -5,13 +6,16 @@ body {
     padding: 20px;
 }
 
+/* Title Centering */
 .title {
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Input Section Styling */
 .input-section {
     display: flex;
+    flex-wrap: wrap; /* Make inputs wrap in smaller screens */
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -26,8 +30,11 @@ body {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    flex: 1; /* Allow input to grow */
+    min-width: 150px; /* Set minimum width */
 }
 
+/* Add Row Button */
 #add-row-btn {
     padding: 10px;
     background-color: #5cb85c;
@@ -37,11 +44,13 @@ body {
     cursor: pointer;
 }
 
+/* Table Container - Ensures no overflow */
 .table-container {
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
     background: #fff;
+    overflow-x: auto; /* Horizontal scrolling on small screens */
 }
 
 #books-table {
@@ -64,12 +73,14 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Action Buttons Styling */
 .action-btn {
     background: none;
     border: none;
     cursor: pointer;
 }
 
+/* Center Submit Button */
 #export-json {
     margin-top: 20px;
     padding: 10px;
@@ -81,22 +92,29 @@ body {
     width: 100%;
 }
 
-@media (max-width: 600px) {
+/* Responsive Styling */
+@media (max-width: 768px) {
     .input-section {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .input-section label {
-        margin-bottom: 5px;
+        flex-direction: column; /* Stack inputs vertically on smaller screens */
     }
 
     .input-section input {
         width: 100%;
+        box-sizing: border-box;
     }
 
     #add-row-btn {
         width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .table-container {
+        overflow-x: auto; /* Enable horizontal scroll */
+    }
+
+    #books-table {
+        min-width: 600px; /* Set a minimum width to avoid table overflow */
     }
 
     #export-json {
